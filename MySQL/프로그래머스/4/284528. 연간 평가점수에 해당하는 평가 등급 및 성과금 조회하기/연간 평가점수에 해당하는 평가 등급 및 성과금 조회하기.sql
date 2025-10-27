@@ -1,0 +1,27 @@
+WITH NEW_HR_GRADE AS(
+    SELECT
+        EMP_NO,
+        YEAR,
+        SUM(SCORE)/2 AS SCORE
+    FROM HR_GRADE
+    GROUP BY EMP_NO, YEAR
+)
+
+SELECT 
+    g.EMP_NO,
+    e.EMP_NAME,
+    CASE 
+        WHEN g.SCORE >= 96 THEN 'S'
+        WHEN g.SCORE >= 90 THEN 'A'
+        WHEN g.SCORE >= 80 THEN 'B'
+        ELSE 'C' 
+    END AS GRADE,
+    e.SAL * CASE 
+        WHEN g.SCORE >= 96 THEN 0.2
+        WHEN g.SCORE >= 90 THEN 0.15
+        WHEN g.SCORE >= 80 THEN 0.1
+        ELSE 0
+    END AS BONUS
+FROM NEW_HR_GRADE g
+LEFT JOIN HR_EMPLOYEES e
+USING (EMP_NO)
