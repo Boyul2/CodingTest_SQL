@@ -1,0 +1,14 @@
+-- 2021년에 가입한 회원들
+WITH users_2021 AS(
+    SELECT user_id
+    FROM USER_INFO 
+    WHERE YEAR(JOINED) = 2021)
+
+SELECT YEAR(sales_date) AS YEAR,
+    MONTH(sales_date) AS MONTH,
+    COUNT(DISTINCT user_id) AS PURCHASED_USERS,
+    ROUND(COUNT(DISTINCT user_id) / (SELECT count(*) FROM users_2021), 1) AS PUCHASED_RATIO
+FROM ONLINE_SALE
+WHERE user_id in (SELECT * FROM users_2021)
+GROUP BY MONTH(sales_date)
+ORDER BY YEAR, MONTH
