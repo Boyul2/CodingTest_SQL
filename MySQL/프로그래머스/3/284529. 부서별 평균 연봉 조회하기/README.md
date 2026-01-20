@@ -1,6 +1,6 @@
 # [level 3] 부서별 평균 연봉 조회하기 - 284529 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/284529) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/284529#qna) 
 
 ### 성능 요약
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2026년 01월 20일 23:14:07
+2026년 01월 20일 23:53:23
 
 ### 문제 설명
 
