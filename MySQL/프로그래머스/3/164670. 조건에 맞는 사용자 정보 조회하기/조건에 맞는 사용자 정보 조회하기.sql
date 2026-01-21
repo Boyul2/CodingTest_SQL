@@ -1,4 +1,3 @@
--- 사용자id, 닉네임, 전체주소, 전화번호
 SELECT 
     writer_id AS user_id,
     nickname,
